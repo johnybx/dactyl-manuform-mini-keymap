@@ -1,0 +1,11 @@
+{
+    "keyboard_name": "Dactyl Manuform mini 4x6 5 thumb keys",
+    "manufacturer": "johnybx",
+    "url": "https://github.com/johnybx/dactyl-manuform-mini-keymap",
+    "maintainer": "johnybx",
+    "usb": {
+        "vid": "0x444D",
+        "pid": "0x3436",
+        "device_version": "0.1.0"
+    }
+}
