@@ -7,18 +7,18 @@
 
 // row-driven
 #define MATRIX_ROW_PINS \
-    { F7, B1, B3, B2, B6 }
+    { GP15, GP14, GP13, GP12, GP11 }
 #define MATRIX_COL_PINS \
-    { D4, C6, D7, E6, B4, B5 }
+    { GP26, GP22, GP21, GP20, GP19, GP18 }
 
 /* COL2ROW or ROW2COL */
 #define DIODE_DIRECTION ROW2COL
 
 /* Serial communication pins */
-#define SOFT_SERIAL_PIN D0
+#define SERIAL_USART_TX_PIN GP1
 
 // WS2812 RGB LED strip input and number of LEDs
-#define RGB_DI_PIN D3
+#define RGB_DI_PIN GP0
 #define RGBLED_NUM 50
 #define RGBLED_SPLIT \
     { 25, 25 }
@@ -29,8 +29,10 @@
 #define AUTO_SHIFT_TIMEOUT 200
 #define NO_AUTO_SHIFT_TAB
 #define NO_AUTO_SHIFT_ALPHA
+
 #define MASTER_LEFT
 // #define MASTER_RIGHT
+
 #define RGBLIGHT_LIMIT_VAL 150
 #define RGBLIGHT_EFFECT_ALTERNATING
 #define RGBLIGHT_EFFECT_RAINBOW_SWIRL RGBLIGHT_MODE_RAINBOW_SWIRL + 2
@@ -46,3 +48,8 @@
 #define LEADER_NO_TIMEOUT
 // https://github.com/qmk/qmk_firmware/blob/master/docs/tap_hold.md
 // #define PERMISSIVE_HOLD_PER_KEY
+
+// Reset - should be enabled default
+// #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET
+// #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET_LED GP17
+// #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET_TIMEOUT 1000U

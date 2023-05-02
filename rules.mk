@@ -1,11 +1,8 @@
-# MCU name
-MCU = atmega32u4
-
-# Processor frequency
-F_CPU = 16000000
-
 # Bootloader selection
-BOOTLOADER = caterina
+BOOTLOADER = rp2040
+
+SERIAL_DRIVER = vendor
+WS2812_DRIVER = vendor
 
 # Build Options
 #   change yes to no to disable
@@ -24,3 +21,7 @@ SPLIT_KEYBOARD = yes
 AUTO_SHIFT_ENABLE = yes
 TAP_DANCE_ENABLE = yes
 LEADER_ENABLE = yes
+
+# TODO: check this
+# RP2040-specific options
+# PICO_INTRINSICS_ENABLED = no # ATM Unsupported by ChibiOS.
