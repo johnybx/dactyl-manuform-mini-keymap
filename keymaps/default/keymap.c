@@ -51,19 +51,52 @@ enum custom_keycodes {
 // }
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
-    [BASE] = LAYOUT(TD(DANCE_0), KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_BSLS, KC_ESC, MT(MOD_LSFT, KC_A), KC_S, KC_D, LT(LOWER, KC_F), KC_G, KC_H, LT(LOWER, KC_J), KC_K, KC_L, MT(MOD_RSFT, KC_SCLN), KC_QUOTE, KC_LSFT, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLASH, KC_BSLS, KC_LEFT, KC_RIGHT, KC_DOWN, KC_UP, KC_SPACE, LCTL_T(KC_BACKSPACE), KC_LALT, TD(DANCE_2), OSL(SYMBOLS), KC_ENTER, KC_RGUI, MO(RANDOM), KC_LGUI, KC_DEL),
+    [BASE] = LAYOUT(
+	TD(DANCE_0), KC_Q,              KC_W,    KC_E,        KC_R,           KC_T,               KC_Y,        KC_U,           KC_I,    KC_O,   KC_P,                 KC_BSLS,
+	KC_ESC,      MT(MOD_LSFT,KC_A), KC_S,    KC_D,        LT(LOWER,KC_F), KC_G,               KC_H,        LT(LOWER,KC_J), KC_K,    KC_L,   MT(MOD_RSFT,KC_SCLN), KC_QUOTE,
+	KC_LSFT,     KC_Z,              KC_X,    KC_C,        KC_V,           KC_B,               KC_N,        KC_M,           KC_COMM, KC_DOT, KC_SLASH,             KC_BSLS,
+	                                                      KC_LEFT,        KC_RIGHT,           KC_DOWN,     KC_UP,
+	                                         KC_SPACE,    KC_LCTL,        KC_LALT,            TD(DANCE_2), OSL(SYMBOLS),   KC_ENTER,
+	                                                      KC_RGUI,     MO(RANDOM),            KC_LGUI,     KC_DEL
+    ),
 
-    [LOWER] = LAYOUT(KC_GRV, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, QK_LEADER, LSFT(KC_GRV), KC_EXLM, KC_AT, KC_HASH, KC_DLR, KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, QK_LOCK, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_BACKSPACE, _______, _______, _______, TO(BASE), _______, _______, _______, _______, _______),
+    [LOWER] = LAYOUT(
+	KC_GRV,       KC_1,    KC_2,    KC_3,    KC_4,     KC_5,               KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    QK_LEADER,
+	LSFT(KC_GRV), KC_EXLM, KC_AT,   KC_HASH, KC_DLR,   KC_PERC,            KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, QK_LOCK,
+	_______,      _______, _______, _______, _______,  _______,            _______, _______, _______, _______, _______, _______,
+											 _______,  _______,            _______, _______,
+							   KC_BACKSPACE, _______,  _______,            _______, TO(BASE), _______,
+								             _______,  _______,            _______, _______
+    ),
 
-    [SYMBOLS] = LAYOUT(_______, VIM_QUIT_MACRO, VIM_WRITE_MACRO, VIM_ENEW_MACRO, _______, VIM_TABNEW_MACRO, _______, KC_LBRC, KC_RBRC, KC_MINUS, KC_EQUAL, KC_PIPE, _______, VIM_QUIT_ALL_MACRO, VIM_SPLIT_MACRO, _______, LALT(LCTL(KC_F)), _______, KC_PIPE, KC_LPRN, KC_RPRN, KC_UNDS, KC_PLUS, KC_DQUO, _______, _______, VIM_WRITE_QUIT_MACRO, _______, VIM_VSPLIT_MACRO, _______, _______, KC_LCBR, KC_RCBR, _______, _______, _______, KC_HOME, KC_END, KC_PGDN, KC_PGUP, LALT(KC_SPACE), _______, _______, _______, TO(BASE), _______, _______, _______, _______, _______
+    [SYMBOLS] = LAYOUT(
+	_______,          VIM_QUIT_MACRO,       VIM_WRITE_MACRO,        VIM_ENEW_MACRO,   _______,            VIM_TABNEW_MACRO,                  _______,   KC_LBRC,   KC_RBRC,   KC_MINUS,   KC_EQUAL,   KC_PIPE,
+	_______,          VIM_QUIT_ALL_MACRO,   VIM_SPLIT_MACRO,        _______,          LALT(LCTL(KC_F)),   _______,                           KC_PIPE,   KC_LPRN,   KC_RPRN,   KC_UNDS,    KC_PLUS,    KC_DQUO,
+	_______,          _______,              VIM_WRITE_QUIT_MACRO,   _______,          VIM_VSPLIT_MACRO,   _______,                           _______,   KC_LCBR,   KC_RCBR,   _______,    _______,    _______,
+	                                                                                  KC_HOME,            KC_END,                            KC_PGDN,   KC_PGUP,
+	                                                                LALT(KC_SPACE),   _______,            _______,                           _______,   TO(BASE),  _______,
+	                                                                                  _______,            _______,                           _______,   _______
 
                        ),
 
-    [NUMLOCK] = LAYOUT(_______, _______, _______, _______, _______, _______, _______, KC_KP_7, KC_KP_8, KC_KP_9, KC_KP_EQUAL, _______, _______, _______, _______, _______, _______, _______, _______, KC_KP_4, KC_KP_5, KC_KP_6, KC_KP_PLUS, _______, _______, _______, _______, _______, _______, _______, KC_NUM_LOCK, KC_KP_1, KC_KP_2, KC_KP_3, KC_KP_ENTER, _______, _______, _______, KC_KP_0, KC_KP_DOT, _______, _______, _______, _______, TO(BASE), _______, _______, _______, _______, _______
+    [NUMLOCK] = LAYOUT(
+	_______, _______, _______, _______, _______, _______,            _______,          KC_KP_7,          KC_KP_8,          KC_KP_9,          KC_KP_EQUAL,         _______,
+	_______, _______, _______, _______, _______, _______,            _______,          KC_KP_4,          KC_KP_5,          KC_KP_6,          KC_KP_PLUS,          _______,
+	_______, _______, _______, _______, _______, _______,            KC_NUM_LOCK,      KC_KP_1,          KC_KP_2,          KC_KP_3,          KC_KP_ENTER,         _______,
+	                           _______, _______,                                       KC_KP_0,          KC_KP_DOT,
+	                           _______, _______, _______,            _______,          TO(BASE),          _______,
+	                           _______, _______,                     _______,          _______
 
                        ),
 
-    [RANDOM] = LAYOUT(KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12, _______, _______, _______, _______, _______, _______, _______, RGB_MODE_FORWARD, _______, _______, _______, _______, QK_BOOT, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, QK_BOOT, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, BASE, _______, KC_PRINT_SCREEN)};
+    [RANDOM] = LAYOUT(
+	KC_F1,            KC_F2,            KC_F3,            KC_F4,            KC_F5,            KC_F6,                  KC_F7,            KC_F8,           KC_F9,          KC_F10,          KC_F11,          KC_F12,
+	_______,          _______,          _______,          _______,          _______,          _______,                _______,          RGB_MODE_FORWARD,_______,       _______,         _______,         _______,
+	QK_BOOT,          _______,          _______,          _______,          _______,          _______,                _______,          _______,         _______,        _______,         _______,         QK_BOOT,
+														  _______,          _______,                                                    _______,         _______,
+													      _______,          _______,          _______,                _______,          _______,         _______,
+																			_______,          BASE,                   _______,          KC_PRINT_SCREEN
+    )};
 
 // Tap Dance Definitions
 

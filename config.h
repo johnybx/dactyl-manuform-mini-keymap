@@ -15,6 +15,7 @@
 #define DIODE_DIRECTION ROW2COL
 
 /* Serial communication pins */
+/* USART Half-duplex */
 #define SERIAL_USART_TX_PIN GP1
 
 // WS2812 RGB LED strip input and number of LEDs
@@ -49,7 +50,7 @@
 // https://github.com/qmk/qmk_firmware/blob/master/docs/tap_hold.md
 // #define PERMISSIVE_HOLD_PER_KEY
 
-// Reset - should be enabled default
-// #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET
-// #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET_LED GP17
+// Reset
+#define RP2040_BOOTLOADER_DOUBLE_TAP_RESET
 // #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET_TIMEOUT 1000U
+// #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET_LED GP17
