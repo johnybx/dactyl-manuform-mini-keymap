@@ -32,6 +32,7 @@ enum custom_keycodes {
     VIM_TABNEW_MACRO,
     SHRUG_MACRO,
     LOOK_MACRO,
+    PRINT_UNICODE_MODE,
 };
 // Debug
 // void keyboard_post_init_user(void) {
@@ -55,7 +56,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	TD(DANCE_0), KC_Q,              KC_W,    KC_E,        KC_R,           KC_T,               KC_Y,        KC_U,           KC_I,    KC_O,   KC_P,                 KC_BSLS,
 	KC_ESC,      MT(MOD_LSFT,KC_A), KC_S,    KC_D,        LT(LOWER,KC_F), KC_G,               KC_H,        LT(LOWER,KC_J), KC_K,    KC_L,   MT(MOD_RSFT,KC_SCLN), KC_QUOTE,
 	KC_LSFT,     KC_Z,              KC_X,    KC_C,        KC_V,           KC_B,               KC_N,        KC_M,           KC_COMM, KC_DOT, KC_SLASH,             KC_BSLS,
-	                                                      KC_LEFT,        KC_RIGHT,           KC_DOWN,     KC_UP,
+	                                KC_LEFT, KC_RIGHT,                                                                     KC_DOWN, KC_UP,
 	                                         KC_SPACE,    KC_LCTL,        KC_LALT,            TD(DANCE_2), OSL(SYMBOLS),   KC_ENTER,
 	                                                      KC_RGUI,     MO(RANDOM),            KC_LGUI,     KC_DEL
     ),
@@ -64,8 +65,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	KC_GRV,       KC_1,    KC_2,    KC_3,    KC_4,     KC_5,               KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    QK_LEADER,
 	LSFT(KC_GRV), KC_EXLM, KC_AT,   KC_HASH, KC_DLR,   KC_PERC,            KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, QK_LOCK,
 	_______,      _______, _______, _______, _______,  _______,            _______, _______, _______, _______, _______, _______,
-											 _______,  _______,            _______, _______,
-							   KC_BACKSPACE, _______,  _______,            _______, TO(BASE), _______,
+                           _______, _______,                                                 _______, _______,
+							   KC_BACKSPACE, _______,  _______,            _______, TO(BASE),_______,
 								             _______,  _______,            _______, _______
     ),
 
@@ -73,7 +74,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	_______,          VIM_QUIT_MACRO,       VIM_WRITE_MACRO,        VIM_ENEW_MACRO,   _______,            VIM_TABNEW_MACRO,                  _______,   KC_LBRC,   KC_RBRC,   KC_MINUS,   KC_EQUAL,   KC_PIPE,
 	_______,          VIM_QUIT_ALL_MACRO,   VIM_SPLIT_MACRO,        _______,          LALT(LCTL(KC_F)),   _______,                           KC_PIPE,   KC_LPRN,   KC_RPRN,   KC_UNDS,    KC_PLUS,    KC_DQUO,
 	_______,          _______,              VIM_WRITE_QUIT_MACRO,   _______,          VIM_VSPLIT_MACRO,   _______,                           _______,   KC_LCBR,   KC_RCBR,   _______,    _______,    _______,
-	                                                                                  KC_HOME,            KC_END,                            KC_PGDN,   KC_PGUP,
+	                                        KC_HOME,                KC_END,                                                                                        KC_PGDN,   KC_PGUP,
 	                                                                LALT(KC_SPACE),   _______,            _______,                           _______,   TO(BASE),  _______,
 	                                                                                  _______,            _______,                           _______,   _______
 
@@ -83,7 +84,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	_______, _______, _______, _______, _______, _______,            _______,          KC_KP_7,          KC_KP_8,          KC_KP_9,          KC_KP_EQUAL,         _______,
 	_______, _______, _______, _______, _______, _______,            _______,          KC_KP_4,          KC_KP_5,          KC_KP_6,          KC_KP_PLUS,          _______,
 	_______, _______, _______, _______, _______, _______,            KC_NUM_LOCK,      KC_KP_1,          KC_KP_2,          KC_KP_3,          KC_KP_ENTER,         _______,
-	                           _______, _______,                                       KC_KP_0,          KC_KP_DOT,
+	                  _______, _______,                                                                  KC_KP_0,          KC_KP_DOT,
 	                           _______, _______, _______,            _______,          TO(BASE),          _______,
 	                           _______, _______,                     _______,          _______
 
@@ -91,9 +92,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [RANDOM] = LAYOUT(
 	KC_F1,            KC_F2,            KC_F3,            KC_F4,            KC_F5,            KC_F6,                  KC_F7,            KC_F8,           KC_F9,          KC_F10,          KC_F11,          KC_F12,
-	_______,          _______,          _______,          _______,          _______,          _______,                _______,          RGB_MODE_FORWARD,_______,       _______,         _______,         _______,
-	QK_BOOT,          _______,          _______,          _______,          _______,          _______,                _______,          _______,         _______,        _______,         _______,         QK_BOOT,
-														  _______,          _______,                                                    _______,         _______,
+	_______,          _______,          _______,          _______,          _______,          _______,                _______,          RGB_MODE_FORWARD,_______,        _______,         _______,         _______,
+	QK_BOOT,          _______,          _______,          _______,          _______,          _______,                _______,          PRINT_UNICODE_MODE,UC_NEXT,      UC_PREV,         UC(0x30C4),      QK_BOOT,
+										_______,          _______,                                                                                       SHRUG_MACRO,    LOOK_MACRO,
 													      _______,          _______,          _______,                _______,          _______,         _______,
 																			_______,          BASE,                   _______,          KC_PRINT_SCREEN
     )};
@@ -379,17 +380,39 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 SEND_STRING(SS_LSFT(SS_TAP(X_SCLN)) SS_DELAY(50) "tabnew" SS_TAP(X_ENTER));
             }
             break;
-            // Unicode support - disabled to lower firmware size
-            // case SHRUG_MACRO:
-            // if (record->event.pressed) {
-            //     send_unicode_string("¯\\_(ツ)_/¯");
-            // }
-            // break;
-            // case LOOK_MACRO:
-            // if (record->event.pressed) {
-            //     send_unicode_string("ಠ_ಠ");
-            // }
-            // break;
+        case SHRUG_MACRO:
+            if (record->event.pressed) {
+                send_unicode_string("¯\\_(ツ)_/¯");
+            }
+            break;
+        case LOOK_MACRO:
+            if (record->event.pressed) {
+                send_unicode_string("ಠ_ಠ");
+            }
+            break;
+        case PRINT_UNICODE_MODE:
+            if (record->event.pressed) {
+                switch (get_unicode_input_mode()){
+                case UNICODE_MODE_MACOS:
+                    SEND_STRING("MACOS");
+                    break;
+                case UNICODE_MODE_LINUX:
+                    SEND_STRING("LINUX");
+                    break;
+                case UNICODE_MODE_WINDOWS:
+                    SEND_STRING("WINDOWS");
+                    break;
+                case UNICODE_MODE_BSD:
+                    SEND_STRING("BSD");
+                    break;
+                case UNICODE_MODE_WINCOMPOSE:
+                    SEND_STRING("WINCOMPOSE");
+                    break;
+                case UNICODE_MODE_EMACS:
+                    SEND_STRING("EMACS");
+                    break;
+                }
+            }
     }
     return true;
 }
